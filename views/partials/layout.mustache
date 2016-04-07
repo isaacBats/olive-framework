@@ -1,0 +1,32 @@
+{{% BLOCKS }}
+<!DOCTYPE html>
+<html>
+<head>
+    
+	<title> {{$ title}}Luna Framework{{/ title}}</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/kube.min.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    {{$ styles}}{{/ styles}}
+</head>
+<body>
+	{{$ content}}
+	<center>
+		<br><br><br>
+		<p>
+			Wlcome to <strong>LUNA</strong>
+		</p>
+	</center>
+	{{/ content}}
+	<script src="https://code.jquery.com/jquery-2.2.2.min.js" ></script>
+	{{$ scripts}}
+	
+	{{/ scripts}}
+
+</body>
+</html>

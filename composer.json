@@ -1,0 +1,12 @@
+{
+    "require": {
+        "mustache/mustache": "^2.9",
+        "vlucas/spot2": "~2.0",
+        "filp/whoops": "^2.0",
+        "monolog/monolog": "^1.17",
+        "zaphpa/zaphpa": "^2.1.1",
+        "aura/session": "^2.0",
+        "facebook/php-sdk-v4" : "~5.0",
+        "intervention/image": "^2.3"
+    }
+}

@@ -1,0 +1,23 @@
+@import url("/assets/fonts/avenir.css");
+
+
+body{
+	background-color: #FFF;
+	font-family: "Avenir-Book" , Arial, Sans-Serif;
+	font-weight: normal;
+}
+
+b{
+	font-family: "Avenir-Medium" , Arial, Sans-Serif;
+	font-weight: bold;
+}
+
+strong{
+	font-family: "Avenir-Black" , Arial, Sans-Serif;
+	font-weight: bolder;
+
+}
+div.clear{
+	clear: both;
+
+}
