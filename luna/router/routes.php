@@ -19,4 +19,19 @@
 	));
 
 
+	/**
+	 * Country API
+	 */
+	$router->addRoute(array(
+	  'path'     => '/country/{id}',
+	  'get'      => array('Country', 'getAction'),
+	  'post'      => array('Country', 'editAction'),
+	  'delete'      => array('Country', 'deleteAction')
+	));
+	$router->addRoute(array(
+	  'path'     => '/country',
+	  'post'      => array('Country', 'addAction'),
+	  'get'      => array('Country', 'allAction')
+	));
+
 ?>

@@ -1,9 +1,7 @@
 <?php 
 
 
-
 /**
-*	Controlador de lugares
 *
 * 
 */
@@ -16,6 +14,8 @@ class Plain extends Luna\Controller
 	}
 
 }
+
+
 
 
 ?>
