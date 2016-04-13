@@ -34,7 +34,9 @@ class Country extends Luna\Controller
 	}
 
 	public function addAction( $req, $res ){
-
+		$country = $req->data;
+		unset( $country["_RAW_HTTP_DATA"]);
+		$this->mapper->create($country);
 	}
 
 	public function allAction( $req, $res ){
