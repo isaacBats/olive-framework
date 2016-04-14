@@ -29,7 +29,7 @@
 	  'delete'      => array('Country', 'deleteAction')		//TERMINADA
 	));
 	$router->addRoute(array(
-	  'path'     => '/country',
+	  'path'     => '/countries',
 	  'post'      => array('Country', 'addAction'), 		// TERMINADA
 	  'get'      => array('Country', 'allAction')			//TERMINADA
 	));

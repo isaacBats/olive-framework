@@ -56,9 +56,11 @@ class Country extends Luna\Controller
 
 		$countries = $this->mapper->select()->toArray();
 
+		$response = new stdClass();
+		$response->country = $countries;
 
 		$res->addHeader( "Content-Type ", "application/json; charset=utf-8");
-		$res->add( json_encode( $countries , JSON_UNESCAPED_UNICODE) );
+		$res->add( json_encode( $response , JSON_UNESCAPED_UNICODE) );
 		echo $res->send(); 
 
 	}
