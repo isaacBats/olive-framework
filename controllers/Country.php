@@ -16,21 +16,34 @@ class Country extends Luna\Controller
 
 	public function getAction( $req, $res ){
 		$id = $req->params["id"];
-		$country = $this->mapper->select()->where(["id"=>$id])->toArray();
-		
-
+		$response = new stdClass();
+		$country = $this->mapper->select()->where(["id"=>$id])->first();
 		$res->addHeader( "Content-Type ", "application/json; charset=utf-8");
-		$res->add( json_encode( $country , JSON_UNESCAPED_UNICODE) );
-		//$res->add( $country );
+		$response->country = $country;
+		$res->add( json_encode( $response , JSON_UNESCAPED_UNICODE) );
 		echo $res->send(); 
 	}
 
 	public function editAction( $req, $res ){
-
+		$country_data = $req->data;
+		$id = $req->params["id"];
+		unset( $country_data["_RAW_HTTP_DATA"]);
+		$country = $this->mapper->where(["id"=>$id])->first();
+		foreach ($country_data as $key => $value) {
+			if( isset( $country->{$key} ) ){
+				$country->{$key} = $value;
+			}
+		}
+		$this->mapper->update($country);
 	}
 
 	public function deleteAction( $req, $res ){
-
+		$id = $req->params["id"];
+		$delete = $this->mapper->delete(["id"=>$id]);
+		$response = new stdClass();
+		$response->msg = ( $delete != 0 ) ? "Eliminado" : "No existe el elemento" ;
+		$res->add( json_encode( $response , JSON_UNESCAPED_UNICODE) );
+		echo $res->send(); 
 	}
 
 	public function addAction( $req, $res ){
@@ -46,7 +59,6 @@ class Country extends Luna\Controller
 
 		$res->addHeader( "Content-Type ", "application/json; charset=utf-8");
 		$res->add( json_encode( $countries , JSON_UNESCAPED_UNICODE) );
-		//$res->add( $countries );
 		echo $res->send(); 
 
 	}

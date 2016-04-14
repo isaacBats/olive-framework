@@ -25,13 +25,13 @@
 	$router->addRoute(array(
 	  'path'     => '/country/{id}',
 	  'get'      => array('Country', 'getAction'),
-	  'post'      => array('Country', 'editAction'),
-	  'delete'      => array('Country', 'deleteAction')
+	  'post'      => array('Country', 'editAction'),		//TERMINADA
+	  'delete'      => array('Country', 'deleteAction')		//TERMINADA
 	));
 	$router->addRoute(array(
 	  'path'     => '/country',
-	  'post'      => array('Country', 'addAction'),
-	  'get'      => array('Country', 'allAction')
+	  'post'      => array('Country', 'addAction'), 		// TERMINADA
+	  'get'      => array('Country', 'allAction')			//TERMINADA
 	));
 
 ?>
