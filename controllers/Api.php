@@ -51,9 +51,13 @@ class Api extends \Luna\Controller
 	}
 
 	public function addAction( $req, $res ){
-		$entity = $req->data;
-		unset( $entity["_RAW_HTTP_DATA"]);
-		$this->mapper->create($entity);
+		$entity = json_decode( $req->data["_RAW_HTTP_DATA"] , true );
+		$entity = $this->mapper->create($entity[$this->response_name]);
+		$response = new \stdClass();
+		$response->{$this->response_name} = $entity;
+		$res->addHeader( "Content-Type ", "application/json; charset=utf-8");
+		$res->add( json_encode( $response , JSON_UNESCAPED_UNICODE) );
+		echo $res->send(); 
 	}
 
 	public function allAction( $req, $res ){

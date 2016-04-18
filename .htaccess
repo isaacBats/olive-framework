@@ -1,3 +1,5 @@
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Headers "origin, content-type, accept"
 Options +FollowSymLinks
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
