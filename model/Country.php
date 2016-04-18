@@ -38,13 +38,13 @@ use Spot\EventEmitter as EventEmitter;
         
     }
 
-    // public static function relations(Mapper $mapper, Entity $entity)
-    // {
-    //     return [
-    //         'detail' => $mapper->hasOne($entity, 'Entity\UserDetails', 'user_id'),
-    //     ];
+    public static function relations(Mapper $mapper, Entity $entity)
+    {
+        return [
+            'detail' => $mapper->hasOne($entity, 'Entity\Continent', 'id_continent')
+        ];
     
-    // }
+    }
     
  } 
 

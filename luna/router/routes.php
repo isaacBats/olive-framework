@@ -34,4 +34,14 @@
 	  'get'      => array('Country', 'allAction')			//TERMINADA
 	));
 
+
+	/**
+	 * Continents API
+	 */
+	$router->addRoute(array(
+	  'path'     => '/continents',
+	  'post'      => array('Continent', 'addAction'), 		//TERMINADA		
+	  'get'      => array('Continent', 'allAction')			//TERMINADA
+	));
+
 ?>
