@@ -19,4 +19,3 @@
 
 	//  REQUIRE RUTES
 	require ( __DIR__.'/luna/router/init.php' );
-?>
