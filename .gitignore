@@ -1,4 +1,12 @@
+#Vendor Composer
 /vendor
-/tmp
-/luna/config.php
 composer.lock
+
+#Directory temp for cache
+/tmp
+
+#Luna Config
+/luna/config.php
+
+#phpIntel
+.phpintel
