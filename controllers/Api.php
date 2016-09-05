@@ -74,4 +74,3 @@ class Api extends \Luna\Controller
 	}
 
 }
-?>

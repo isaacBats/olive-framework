@@ -111,6 +111,3 @@ class Image extends Luna\Controller
 	}
 
 }
-
-
-?>

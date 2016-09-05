@@ -14,8 +14,3 @@ class Plain extends Luna\Controller
 	}
 
 }
-
-
-
-
-?>

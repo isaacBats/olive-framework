@@ -28,7 +28,3 @@ use Spot\MapperInterface as Mapper;
     }
     
  } 
-
-
-
- ?>

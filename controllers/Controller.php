@@ -143,13 +143,11 @@
 
 
 	
-	//  AUTOLOAD CONTROLLERS
-	foreach( scandir( __DIR__ ) as $class ){
-		$buffer = explode("." , $class);
-		if( end( $buffer ) == "php"){
-			require_once( __DIR__.'/'.$class );
-			
-		}
+//  AUTOLOAD CONTROLLERS
+foreach( scandir( __DIR__ ) as $class ){
+	$buffer = explode("." , $class);
+	if( end( $buffer ) == "php"){
+		require_once( __DIR__.'/'.$class );
+		
 	}
-	
-?>
+}
