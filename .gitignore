@@ -1,6 +1,7 @@
 #Vendor Composer
 /vendor
 composer.lock
+composer.phar
 
 #Directory temp for cache
 /tmp
