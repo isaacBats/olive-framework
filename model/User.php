@@ -37,17 +37,5 @@ use Spot\EventEmitter as EventEmitter;
             $entity->password = md5( $entity->password );
         });
     }
-
-    // public static function relations(Mapper $mapper, Entity $entity)
-    // {
-    //     return [
-    //         'detail' => $mapper->hasOne($entity, 'Entity\UserDetails', 'user_id'),
-    //     ];
-    
-    // }
     
  } 
-
-
-
- ?>
