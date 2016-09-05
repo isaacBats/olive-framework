@@ -2,14 +2,11 @@
 
 
 body{
-	background-color: #FFF;
+	background-color: #EEE;
 	font-family: "Avenir-Book" , Arial, Sans-Serif;
+	font-size: 16px;
 	font-weight: normal;
-}
 
-b{
-	font-family: "Avenir-Medium" , Arial, Sans-Serif;
-	font-weight: bold;
 }
 
 strong{
@@ -17,7 +14,10 @@ strong{
 	font-weight: bolder;
 
 }
-div.clear{
-	clear: both;
 
+#luna-home{
+	color: rgba(171,171,171, 0.6);
+	font-size: 2.5em;
+	margin-top: 10%;
+	text-shadow: 2px 2px 4px #FFF;
 }
