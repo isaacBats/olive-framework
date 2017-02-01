@@ -10,30 +10,30 @@
 
 	
 	//  REQUIRE MODELS
-	foreach( scandir( __LUNA__.'/model' ) as $model ){
+	foreach( scandir( __OLIVE__.'/src/models' ) as $model ){
 		$bffmodel = explode("." , $model);
 		if( end( $bffmodel ) == "php" ){
-			require_once( __LUNA__.'/model/'.$model );
+			require_once( __OLIVE__.'/src/models/'.$model );
 		}
 	}
+
 	//  REQUIRE CONTROLLERS
-	require_once( __LUNA__.'/controllers/Controller.php' );
+	require_once( __OLIVE__.'/src/controllers/Controller.php' );
 
 	//  START ROUTER
 	$router = new \Zaphpa\Router();
 	
 	//  ATTACHS
 	//$router->attach('\Luna\OAuth' );
-	$router->attach('\Luna\CORS', '*');
-	$router->attach('\Luna\Migrator');
-	$router->attach('\Luna\Mustache');
-	$router->attach('\Luna\AutoDocumentator', '/apidocs' , $details = true);
-	$router->attach('\Luna\FacebookLogin');
-	$router->attach('\Luna\SessionLogin');
-
+	$router->attach('\config\CORS', '*');
+	$router->attach('\config\Migrator');
+	$router->attach('\config\Mustache');
+	$router->attach('\config\AutoDocumentator', '/apidocs' , $details = true);
+	$router->attach('\config\FacebookLogin');
+	$router->attach('\config\SessionLogin');
 
 	//  ROUTES
-	require_once( __LUNA__.'/luna/router/routes.php' );
+	require_once( __OLIVE__.'/config/router/routes.php' );
 	try {
 	  $router->route();
 	} catch ( \Zaphpa\Exceptions\InvalidPathException $ex) {

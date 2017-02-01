@@ -1,6 +1,6 @@
 <?php
 
-namespace Luna;
+namespace config;
 
 /**
  * Please note that ZaphpaAutoDocumentation is instantiated twice

@@ -1,6 +1,7 @@
 <?php 
+
+namespace Olive\controllers;
 	
-	namespace Luna;
 	use PHPRouter\Route;
 	use Monolog\Logger;
 	use Monolog\Handler\StreamHandler;
@@ -28,13 +29,12 @@
 		 */
 		function __construct()
 		{
-
 			if( !isset($_SESSION)){
 				session_start();
 			}
 			global $session_handle;
 			$this->session_handle = $session_handle;
-			$this->session = $this->session_handle->getSegment('Luna\Controllers');
+			$this->session = $this->session_handle->getSegment('Olive\controllers');
 
 			$this->entity_name = class_exists( "\\Entity\\".get_class($this))?("\\Entity\\".get_class($this)):"";
 			
@@ -44,7 +44,7 @@
 
 			// create a log channel
 			$this->log = new Logger('luna');
-			$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/luna.log', Logger::WARNING ) );
+			$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/luna.log', Logger::INFO ) );
 		}
 
 
@@ -64,18 +64,22 @@
          * @param Zapha\Reponse $res
          * @return Mustache Render String
          */
-        public function rview( $res , $data = []){
-
-            $session = $this->session_handle->getSegment('Luna\Session');
-		    $data = array_merge( ["user"=>$session->get("user")] , $data );
-		     
+        public function renderWiew($res, $data = [])
+        {
+	        $session = $this->session_handle->getSegment('Olive\Session');
+	        $data = array_merge(["user" => $session->get("user")], $data);
 	        $alert = $this->session->getFlash("alert");
-
-	        if( $alert ){
-	            $data = array_merge( ["alert"=>$alert] , $data);
+	        $showmodal = $this->session->getFlash("showmodal");
+	        if ($alert) {
+	            $data = array_merge(["alert" => $alert], $data);
 	        }
-            return $res->m->render($data );
-        }
+	        if ($showmodal) {
+	            $data = array_merge(["showmodal" => $showmodal], $data);
+	        }
+	        $data = array_merge(["system" => ['current'=>time()]], $data);
+
+	        return $res->m->render($data);
+	    }
 
 		/**
 		 * TODO: mover a una clase de fromularios y pasar como una propiedad referenciada a un objeto
@@ -144,10 +148,9 @@
 
 	
 //  AUTOLOAD CONTROLLERS
-foreach( scandir( __DIR__ ) as $class ){
+foreach( scandir( __OLIVE__.'/src/controllers' ) as $class ){
 	$buffer = explode("." , $class);
 	if( end( $buffer ) == "php"){
-		require_once( __DIR__.'/'.$class );
-		
+		require_once(__OLIVE__.'/src/controllers/'.$class);
 	}
 }

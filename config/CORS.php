@@ -1,6 +1,6 @@
 <?php
 
-namespace Luna;
+namespace config;
 
 /**
  * Class CORS

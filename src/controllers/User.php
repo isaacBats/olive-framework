@@ -1,14 +1,10 @@
 <?php 
 
+namespace Olive\controllers;
 
+use Olive\controllers\Controller;
 
-/**
-*	Controlador de lugares
-*
-* 
-*/
-
-class User extends Luna\Controller
+class User extends Controller
 {
 
 	

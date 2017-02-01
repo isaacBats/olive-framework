@@ -15,7 +15,7 @@
 	require_once( __DIR__.'/vendor/autoload.php' );
 	
 	// CONFIG
-	require_once( __DIR__.'/luna/config.php' );
+	require_once( __DIR__.'/config/config.php' );
 
 	//  REQUIRE RUTES
-	require ( __DIR__.'/luna/router/init.php' );
+	require ( __DIR__.'/config/router/init.php' );

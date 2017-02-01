@@ -1,10 +1,10 @@
 <?php
 
-namespace Luna;
+namespace config;
 
 /**
  * Class Para manupular el login de usuarios
- * @package Luna
+ * @package config
  *
  * Usage:
  * 

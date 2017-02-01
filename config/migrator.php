@@ -1,6 +1,6 @@
 <?php
 
-namespace Luna;
+namespace config;
 
 /**
  * Class Para manupular el login de usuarios
@@ -42,18 +42,18 @@ class Migrator extends \Zaphpa\BaseMiddleware {
     if( isset( $req->params["entity"] ) ){
       $entMapper = $spot->mapper( "Entity\\".$req->params["entity"] );  
     }else{
-      if( !is_dir( __LUNA__.$this->dir )){mkdir( __LUNA__.$this->dir );}
+      if( !is_dir( __OLIVE__.$this->dir )){mkdir( __OLIVE__.$this->dir );}
       $migration = date("YmdHis");
       echo "Creating dataFixtures for migrations {$migration}:\n";
-      mkdir( __LUNA__.$this->dir."/".$migration );
-      foreach( scandir( __LUNA__.'/model' ) as $model ){
+      mkdir( __OLIVE__.$this->dir."/".$migration );
+      foreach( scandir( __OLIVE__.'/model' ) as $model ){
         $bffmodel = explode("." , $model);
         if( end( $bffmodel ) == "php" ){
           array_pop($bffmodel);
           if( str_replace("Mapper" , "" ,implode("." , $bffmodel ) ) == implode("." , $bffmodel )){
             echo "\n\t Exporting data for Entity ".implode("." , $bffmodel ).":";
             $entMapper = $spot->mapper("Entity\\".implode("." , $bffmodel ) );
-            file_put_contents(__LUNA__.$this->dir."/".$migration."/".implode("." , $bffmodel ).".json" , 
+            file_put_contents(__OLIVE__.$this->dir."/".$migration."/".implode("." , $bffmodel ).".json" , 
                               serialize( $entMapper->all()->toArray() ));
             echo "done";
             echo "\n\t\t File:/".$migration."/".implode("." , $bffmodel ).".json was successfully created !";
@@ -70,7 +70,7 @@ class Migrator extends \Zaphpa\BaseMiddleware {
     global $spot;
     $entities = [];
     echo "<pre>";
-    foreach( scandir( __LUNA__.'/model' ) as $model ){
+    foreach( scandir( __OLIVE__.'/model' ) as $model ){
       $bffmodel = explode("." , $model);
       if( end( $bffmodel ) == "php" ){
         array_pop($bffmodel);
@@ -82,12 +82,12 @@ class Migrator extends \Zaphpa\BaseMiddleware {
           $entMapper->dropTable();
           $entMapper->migrate();
           
-          if( is_dir( __LUNA__.$this->dir ) ){
-            foreach( scandir( __LUNA__.$this->dir , SCANDIR_SORT_DESCENDING)  as $migration ){
-              if( str_replace(".","",$migration)==$migration && is_dir( __LUNA__.$this->dir."/".$migration ) ){
-                foreach( scandir( __LUNA__.$this->dir."/".$migration )  as $dataEntity ){
+          if( is_dir( __OLIVE__.$this->dir ) ){
+            foreach( scandir( __OLIVE__.$this->dir , SCANDIR_SORT_DESCENDING)  as $migration ){
+              if( str_replace(".","",$migration)==$migration && is_dir( __OLIVE__.$this->dir."/".$migration ) ){
+                foreach( scandir( __OLIVE__.$this->dir."/".$migration )  as $dataEntity ){
                   if( implode("." , $bffmodel ).".json" == $dataEntity){
-                    $fixures = unserialize(file_get_contents(__LUNA__.$this->dir."/".$migration."/".$dataEntity) );
+                    $fixures = unserialize(file_get_contents(__OLIVE__.$this->dir."/".$migration."/".$dataEntity) );
                     $fields = $entMapper->fields();
                     foreach ($fixures as $fix) {
                       foreach ($fix as $key => $val) {

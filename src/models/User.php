@@ -16,17 +16,16 @@ use Spot\EventEmitter as EventEmitter;
  class User extends \Spot\Entity
  {
 
- 	protected static $table = 'user';
+ 	protected static $table = 'users';
  	
  	public static function fields(){
         return [
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
-            'email'         => ['type' => 'string', 'required' => true],
-            'password'         => ['type' => 'string', 'required' => true],
+            'email'        => ['type' => 'string', 'required' => true],
+            'password'     => ['type' => 'string', 'required' => true],
             'name'         => ['type' => 'string', 'required' => true],
-            'type_user'         => ['type' => 'string'],
-            'facebook_id'         => ['type' => 'string' ],
-            'facebook_token'         => ['type' => 'string' ],
+            'type_user'    => ['type' => 'smallint'],
+            'is_active'    => ['type' => 'smallint'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
         ];
     }
@@ -35,6 +34,13 @@ use Spot\EventEmitter as EventEmitter;
     {
         $eventEmitter->on('beforeInsert', function (Entity $entity, Mapper $mapper) {
             $entity->password = md5( $entity->password );
+        });
+
+        $eventEmitter->on('beforeUpdate', function (Entity $entity, Mapper $mapper) {
+            $current_passr = $mapper->first(['id' => $entity->toArray()['id']])->toArray()['password'];
+            if ($entity->password != $current_passr) {
+                $entity->password = md5($entity->password);
+            }
         });
     }
     
