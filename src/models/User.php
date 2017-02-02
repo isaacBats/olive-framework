@@ -21,9 +21,9 @@ use Spot\EventEmitter as EventEmitter;
  	public static function fields(){
         return [
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
-            'email'        => ['type' => 'string', 'required' => true],
+            'email'        => ['type' => 'string', 'required' => true, 'unique' => true],
             'password'     => ['type' => 'string', 'required' => true],
-            'name'         => ['type' => 'string', 'required' => true],
+            'user_name'    => ['type' => 'string', 'unique' => true],
             'type_user'    => ['type' => 'smallint'],
             'is_active'    => ['type' => 'smallint'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]

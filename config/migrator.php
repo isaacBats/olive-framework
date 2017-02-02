@@ -21,17 +21,17 @@ class Migrator extends \Zaphpa\BaseMiddleware {
 
     $router->addRoute(array(
       'path'     => '/migrate/up',
-      'get'      => array('\Luna\Migrator','migrate')
+      'get'      => array('\config\Migrator','migrate')
     ));
 
     $router->addRoute(array(
       'path'     => '/getData/{entity}',
-      'get'      => array('\Luna\Migrator','data')
+      'get'      => array('\config\Migrator','data')
     ));
 
     $router->addRoute(array(
       'path'     => '/migrate/data',
-      'get'      => array('\Luna\Migrator','data')
+      'get'      => array('\config\Migrator','data')
     ));
   }
 
@@ -70,7 +70,7 @@ class Migrator extends \Zaphpa\BaseMiddleware {
     global $spot;
     $entities = [];
     echo "<pre>";
-    foreach( scandir( __OLIVE__.'/model' ) as $model ){
+    foreach( scandir( __OLIVE__.'/src/models' ) as $model ){
       $bffmodel = explode("." , $model);
       if( end( $bffmodel ) == "php" ){
         array_pop($bffmodel);
