@@ -11,3 +11,6 @@ composer.phar
 
 #phpIntel
 .phpintel
+
+#Directory of migrations
+migration
