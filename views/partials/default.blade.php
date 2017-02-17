@@ -11,6 +11,7 @@
 		@yield('content')		
 	</section>
 	<footer>
+		<script src="https://code.jquery.com/jquery-2.2.2.min.js" ></script>
 		@yield('js')
 	</footer>
 </body>

@@ -1,7 +1,6 @@
 <?php
 	//  BaseMiddleware by Luna for CORS see usage on class
 	require_once (__DIR__."/../CORS.php");
-	// require_once (__DIR__."/../mustache.php");
 	require_once (__DIR__."/../Blade.php");
 	//require_once (__DIR__."/../oauth.php");
 	require_once (__DIR__."/../migrator.php");
@@ -28,7 +27,6 @@
 	//$router->attach('\Luna\OAuth' );
 	$router->attach('\config\CORS', '*');
 	$router->attach('\config\Migrator');
-	// $router->attach('\config\Mustache');
 	$router->attach('\config\Blade');
 	$router->attach('\config\AutoDocumentator', '/apidocs' , $details = true);
 	$router->attach('\config\FacebookLogin');
