@@ -4,11 +4,11 @@ namespace config;
 
 /**
  * Class CORS
- * @package Luna
+ * @package Olive
  *
  * Usage:
  * 
- * $router->attach('\Luna\CORS', '*')
+ * $router->attach('\Olive\CORS', '*')
  *     ->restrict('GET', '/post/{id}');
  * 
  */

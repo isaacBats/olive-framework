@@ -83,6 +83,7 @@ class Migrator extends \Zaphpa\BaseMiddleware {
           $entMapper->migrate();
           
           if( is_dir( __OLIVE__.$this->dir ) ){
+            echo 'Se guardan las migraciones en: ' . __OLIVE__.$this->dir;
             foreach( scandir( __OLIVE__.$this->dir , SCANDIR_SORT_DESCENDING)  as $migration ){
               if( str_replace(".","",$migration)==$migration && is_dir( __OLIVE__.$this->dir."/".$migration ) ){
                 foreach( scandir( __OLIVE__.$this->dir."/".$migration )  as $dataEntity ){

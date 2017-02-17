@@ -64,8 +64,9 @@ namespace Olive\controllers;
          * @param Zapha\Reponse $res
          * @return Mustache Render String
          */
-        public function renderWiew($res, $data = [])
+        public function renderView($res, $template, $data = [])
         {
+
 	        $session = $this->session_handle->getSegment('Olive\Session');
 	        $data = array_merge(["user" => $session->get("user")], $data);
 	        $alert = $this->session->getFlash("alert");
@@ -77,8 +78,8 @@ namespace Olive\controllers;
 	            $data = array_merge(["showmodal" => $showmodal], $data);
 	        }
 	        $data = array_merge(["system" => ['current'=>time()]], $data);
-
-	        return $res->m->render($data);
+	        
+        	 echo $res->blade->render($template, $data);
 	    }
 
 		/**

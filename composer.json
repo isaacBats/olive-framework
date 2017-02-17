@@ -18,7 +18,9 @@
         "aura/session": "^2.0",
         "phpmailer/phpmailer": "~5.2",
         "facebook/graph-sdk": "^5.4",
-        "symfony/var-dumper": "~3.0"
+        "symfony/var-dumper": "~3.0",
+        "windwalker/renderer": "2.*",
+        "illuminate/view": "4.*"
     },
      "autoload":{
         "psr-4":{
